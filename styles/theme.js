@@ -2,8 +2,10 @@ import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
 const baseTheme = {
-  headerHeight: "55px",
-  footerHeight: "20px",
+  // size of an H1 in pixels
+  headerHeight: 42,
+  // size of the footer in pixels
+  footerHeight: 36,
 }
 
 // Create a theme instance.
