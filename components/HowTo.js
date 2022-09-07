@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 import Section from './Section';
 import Tip from './Tip';
 import { makeStyles } from "@mui/styles";
+import { motion } from "framer-motion";
 
 import defaultValues from '../scripts/const';
-import theme from '../styles/theme';
 
-const HowTo = ({ nextStep }) => {
+const HowTo = ({ handleClose }) => {
     // les infos sur le thème
     const CurrentTheme = useTheme();
     // la taille max du container en fonction de la taille de l'écran
@@ -45,12 +45,20 @@ const HowTo = ({ nextStep }) => {
                 <CardActions className={classes.btnContainer}>
                     <Button
                         variant="contained" size="small"
-                        onClick={nextStep}>
+                        onClick={handleClose}>
                         {defaultValues.howToBtnToGo}
                     </Button>
                 </CardActions>
             </Card>
-
+            <motion.div
+                className={classes.blurContainer}
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                intial="hidden"
+                animate="visible"
+                exit="hidden"
+                onClick={handleClose}
+            >
+            </motion.div>
         </Section>
     );
 }
@@ -60,12 +68,15 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "50%",
         margin: "auto",
         borderRadius: theme.spacing(2),
+        boxShadow: theme.shadows[10],
     },
     placeholderImage: {
         maxHeight: "50vw",
         objectFit: "fitted",
     },
     howToContainer: {
+        zIndex: "10000",
+        boxShadow: theme.shadows[10],
         margin: "auto",
         maxHeight: "40%",
         position: "absolute",
@@ -79,6 +90,16 @@ const useStyles = makeStyles((theme) => ({
     btnContainer: {
         display: 'flex',
         justifyContent: 'space-around',
+    },
+    blurContainer: {
+        position: "fixed",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0,0,0,0.22)",
+        backdropFilter: "blur(2px)",
+        opacity: 0,
     }
 }));
 
