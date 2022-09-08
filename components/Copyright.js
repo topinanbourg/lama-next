@@ -2,13 +2,11 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import MuiLink from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import { makeStyles } from "@mui/styles";
 
 const Copyright = () => {
-  const classes = useStyles();
   return (
     <Box
-      className={classes.copyright}
+      className={sxStyles.copyright}
       component="footer"
     >
       <Typography variant="body2" align="center">
@@ -22,13 +20,12 @@ const Copyright = () => {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const sxStyles = {
   copyright: {
     py: 1,
     px: 0,
-    color: theme.palette.primary.contrastText,
+    color: "primary.contrastText",
   },
-}));
-
+};
 
 export default Copyright;

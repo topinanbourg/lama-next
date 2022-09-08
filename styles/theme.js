@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
 
 const baseTheme = {
   // size of an H1 in pixels
@@ -11,15 +10,7 @@ const baseTheme = {
 // Create a theme instance.
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
-    },
-    background: {
-      default: '#212121',
-    }
+    mode: 'dark',
   },
   ...baseTheme
 });

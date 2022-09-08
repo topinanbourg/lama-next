@@ -1,48 +1,36 @@
 
-import Image from 'next/image';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Divider, useTheme } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Section from './Section';
 import Tip from './Tip';
-import { makeStyles } from "@mui/styles";
 import { motion } from "framer-motion";
 
 import defaultValues from '../scripts/const';
+import bgStyles from '../styles/bgContainer';
 
 const HowTo = ({ handleClose }) => {
-    // les infos sur le thème
-    const CurrentTheme = useTheme();
-    // la taille max du container en fonction de la taille de l'écran
-    let maxWidth = CurrentTheme.breakpoints.current.value || 1234;
-
-    // moins la hauteur du H1 et du footer
-    let margins = CurrentTheme.headerHeight + CurrentTheme.footerHeight;
-    // moins les marges de padding de container (qui est en "px")
-    margins += 2 * CurrentTheme.spacing(3).slice(0, -2);
-
-    const classes = useStyles();
 
     return (
         <Section key="step0">
-            <Card className={classes.placeholderContainer}>
-                <CardMedia className={classes.placeholderImage}
+            <Card sx={sxStyles.bgContainer}>
+                <CardMedia sx={sxStyles.bgImage}
                     component="img"
                     image="/placeholders.jpg"
                     alt="placeholders"
                 />
             </Card>
-            <Card className={classes.howToContainer}>
+            <Card sx={sxStyles.howToContainer}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {defaultValues.titleHowTo}
                     </Typography>
-                    <Typography variant="body2" className={classes.howToText}>
+                    <Typography variant="body2" sx={sxStyles.howToText}>
                         {defaultValues.howToText}
                     </Typography>
                     <Tip />
                 </CardContent>
                 <Divider variant="middle" />
-                <CardActions className={classes.btnContainer}>
+                <CardActions sx={sxStyles.btnContainer}>
                     <Button
                         variant="contained" size="small"
                         onClick={handleClose}>
@@ -50,33 +38,25 @@ const HowTo = ({ handleClose }) => {
                     </Button>
                 </CardActions>
             </Card>
-            <motion.div
-                className={classes.blurContainer}
+            <Box
+                component={motion.div}
+                sx={sxStyles.blurContainer}
                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                 intial="hidden"
                 animate="visible"
                 exit="hidden"
                 onClick={handleClose}
             >
-            </motion.div>
+            </Box>
         </Section>
     );
 }
 
-const useStyles = makeStyles((theme) => ({
-    placeholderContainer: {
-        maxWidth: "50%",
-        margin: "auto",
-        borderRadius: theme.spacing(2),
-        boxShadow: theme.shadows[10],
-    },
-    placeholderImage: {
-        maxHeight: "50vw",
-        objectFit: "fitted",
-    },
+const sxStyles = {
+    ...bgStyles,
     howToContainer: {
         zIndex: "10000",
-        boxShadow: theme.shadows[10],
+        boxShadow: 10,
         margin: "auto",
         maxHeight: "40%",
         position: "absolute",
@@ -85,7 +65,8 @@ const useStyles = makeStyles((theme) => ({
         transform: "translate(-50%, -50%)",
     },
     howToText: {
-        color: theme.palette.text.primary,
+        color: 'text.primary',
+        mb: 2
     },
     btnContainer: {
         display: 'flex',
@@ -101,6 +82,6 @@ const useStyles = makeStyles((theme) => ({
         backdropFilter: "blur(2px)",
         opacity: 0,
     }
-}));
+};
 
 export default HowTo;
