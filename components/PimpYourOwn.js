@@ -3,30 +3,51 @@ import { Box, Card, CardMedia } from '@mui/material';
 import { GoLightBulb } from 'react-icons/go';
 
 import Section from './Section';
-import defaultValues from '../scripts/const';
 import bgStyles from '../styles/bgContainer';
+import defaultValues from '../scripts/const';
+import Part from './Part';
+import { margin } from '@mui/system';
 
-const PimpYourHown = ({ displayHowTo }) => {
+const PimpYourHown = ({ displayHowTo, parts }) => {
 
     return (
         <Section>
             <Card sx={sxStyles.bgContainer}>
-                <CardMedia sx={sxStyles.bgImage}
-                    component="img"
-                    image="/background.jpg"
-                    alt="placeholders"
-                />
+                <Box sx={sxStyles.partContainer}>
+                    <CardMedia sx={sxStyles.bgImage}
+                        component="img"
+                        image="/background.jpg"
+                        // image="/placeholders.jpg"
+                        alt="placeholders"
+                    />
+                    {parts.map((part, index) => (
+                        <Part key={part.id} itemToDisplay={part} emptyImg={defaultValues.transparentPixel} />
+                    ))}
+                </Box>
             </Card>
             <Box
                 component={GoLightBulb}
                 sx={sxStyles.btnHowTo}
                 onClick={displayHowTo}
-                title={defaultValues.displayHowToBtn} />
-        </Section>
+                title={defaultValues.displayHowToBtn} >
+            </Box>
+        </Section >
     );
 }
 
 const sxStyles = {
+    partContainer: {
+        position: "relative",
+    },
+    lamaContainer: {
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        top: "0",
+        left: "0",
+        marginTop: "-100%",
+        bgcolor: "#FFAA00",
+    },
     ...bgStyles,
     btnHowTo: (theme) => ({
         position: "fixed",
