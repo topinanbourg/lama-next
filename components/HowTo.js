@@ -8,14 +8,21 @@ import { motion } from "framer-motion";
 import defaultValues from '../scripts/const';
 import bgStyles from '../styles/bgContainer';
 
+import { useContext } from 'react';
+import MaxWidthContext from '../scripts/maxWidthContext';
+
 const HowTo = ({ handleClose }) => {
+
+    const fileImage = "placeholders.jpg";
+    const maxWidth = useContext(MaxWidthContext);
+    const imgUrl = '/_next/image?url=%2F' + fileImage + '&w=' + defaultValues.bgSizes[maxWidth.key] + '&q=75';
 
     return (
         <Section key="step0">
             <Card sx={sxStyles.bgContainer}>
                 <CardMedia sx={sxStyles.bgImage}
                     component="img"
-                    image="/placeholders.jpg"
+                    image={imgUrl}
                     alt="placeholders"
                 />
             </Card>

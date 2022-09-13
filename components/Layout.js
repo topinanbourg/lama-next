@@ -1,5 +1,4 @@
 
-import { useTheme } from "@mui/styles";
 import { ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -7,8 +6,13 @@ import Container from '@mui/material/Container';
 import Copyright from './Copyright';
 
 import CurrentTheme from '../styles/theme';
+import MaxWidthContext from "../scripts/maxWidthContext";
+import { useTheme } from "@mui/styles";
+import { useContext } from 'react';
+
 
 const Layout = ({ children }) => {
+
     const theme = useTheme();
 
     // availables breakpoints from muitheme
@@ -18,10 +22,11 @@ const Layout = ({ children }) => {
         return useMediaQuery(theme.breakpoints.up(curr)) ? curr : acc;
     });
 
+    const maxWidth = theme.breakpoints.values[largestSizeBP];
     // save breakpoint key and value in theme provided
     CurrentTheme.breakpoints.current = {
         key: largestSizeBP,
-        value: theme.breakpoints.values[largestSizeBP]
+        value: maxWidth
     };
 
     // moins la hauteur du footer
@@ -31,19 +36,21 @@ const Layout = ({ children }) => {
 
     return (
         <ThemeProvider theme={CurrentTheme}>
-            <Container maxWidth={largestSizeBP}
-                sx={{
-                    px: 1,
-                    py: 1,
-                    mt: 'auto',
-                    minHeight: `calc(100vh - ${margins}px)`,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    textAlign: 'center',
-                }}>
-                {children}
-                <Copyright />
-            </Container >
+            <MaxWidthContext.Provider value={CurrentTheme.breakpoints.current}>
+                <Container maxWidth={largestSizeBP}
+                    sx={{
+                        px: 1,
+                        py: 1,
+                        mt: 'auto',
+                        minHeight: `calc(100vh - ${margins}px)`,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        textAlign: 'center',
+                    }}>
+                    {children}
+                    <Copyright />
+                </Container >
+            </MaxWidthContext.Provider>
         </ThemeProvider>
     );
 };

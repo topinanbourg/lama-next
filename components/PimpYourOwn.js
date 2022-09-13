@@ -6,9 +6,15 @@ import Section from './Section';
 import bgStyles from '../styles/bgContainer';
 import defaultValues from '../scripts/const';
 import Part from './Part';
-import { margin } from '@mui/system';
+
+import { useContext } from 'react';
+import MaxWidthContext from '../scripts/maxWidthContext';
 
 const PimpYourHown = ({ displayHowTo, parts }) => {
+
+    const fileImage = "background.jpg";
+    const maxWidth = useContext(MaxWidthContext);
+    const imgUrl = '/_next/image?url=%2F' + fileImage + '&w=' + defaultValues.bgSizes[maxWidth.key] + '&q=75';
 
     return (
         <Section>
@@ -16,8 +22,7 @@ const PimpYourHown = ({ displayHowTo, parts }) => {
                 <Box sx={sxStyles.partContainer}>
                     <CardMedia sx={sxStyles.bgImage}
                         component="img"
-                        image="/background.jpg"
-                        // image="/placeholders.jpg"
+                        image={imgUrl}
                         alt="placeholders"
                     />
                     {parts.map((part, index) => (

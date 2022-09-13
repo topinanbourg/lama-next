@@ -5,6 +5,14 @@ export default {
     howToBtnToGo: 'OK, Pimp my own!',
     howToText: 'Choisi la (ou les) partie du lama à pimper :P',
     displayHowToBtn: 'Que faire ?',
+    // max sizes images availables for next
+    bgSizes: {
+        xl: 2048,
+        lg: 1920,
+        md: 1200,
+        sm: 1080,
+        xs: 640,
+    },
     parts: [
         {
             id: "face",
