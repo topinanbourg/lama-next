@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 const Copyright = () => {
   return (
     <Box
-      className={sxStyles.copyright}
+      sx={sxStyles.copyright}
       component="footer"
     >
       <Typography variant="body2" align="center">
@@ -22,9 +22,13 @@ const Copyright = () => {
 
 const sxStyles = {
   copyright: {
+    position: "fixed",
+    bottom: 0,
+    width: "80%",
+    left: "50%",
+    ml: "-40%",
     py: 1,
     px: 0,
-    color: "primary.contrastText",
   },
 };
 
