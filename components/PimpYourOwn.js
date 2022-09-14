@@ -3,18 +3,12 @@ import { Box, Card, CardMedia } from '@mui/material';
 import { GoLightBulb } from 'react-icons/go';
 
 import Section from './Section';
+import Part from './Part';
 import bgStyles from '../styles/bgContainer';
 import defaultValues from '../scripts/const';
-import Part from './Part';
-
-import { useContext } from 'react';
-import MaxWidthContext from '../scripts/maxWidthContext';
+import getNextImage from '../scripts/utils';
 
 const PimpYourHown = ({ displayHowTo, parts }) => {
-
-    const fileImage = "background.jpg";
-    const maxWidth = useContext(MaxWidthContext);
-    const imgUrl = '/_next/image?url=%2F' + fileImage + '&w=' + defaultValues.bgSizes[maxWidth.key] + '&q=75';
 
     return (
         <Section>
@@ -22,8 +16,8 @@ const PimpYourHown = ({ displayHowTo, parts }) => {
                 <Box sx={sxStyles.partContainer}>
                     <CardMedia sx={sxStyles.bgImage}
                         component="img"
-                        image={imgUrl}
-                        alt="placeholders"
+                        image={getNextImage("background.jpg")}
+                        alt="background"
                     />
                     {parts.map((part, index) => (
                         <Part key={part.id} itemToDisplay={part} emptyImg={defaultValues.transparentPixel} />

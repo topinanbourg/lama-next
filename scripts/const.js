@@ -6,14 +6,6 @@ export default {
     tipHowTo: ['Dans le doute: Click !', "(il n'y a rien de dangereux par ici)"],
     howToBtnToGo: 'Pimp my lama!',
     displayHowToBtn: 'Que faire ?',
-    // max sizes images availables for next
-    bgSizes: {
-        xl: 2048,
-        lg: 1920,
-        md: 1200,
-        sm: 1080,
-        xs: 640,
-    },
     parts: [
         {
             id: "face",
@@ -66,5 +58,13 @@ export default {
             }
         },
     ],
-    transparentPixel: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+    transparentPixel: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
+    // max sizes images availables for next
+    bgSizes: {
+        xl: 2048,
+        lg: 1920,
+        md: 1200,
+        sm: 1080,
+        xs: 640,
+    },
 };

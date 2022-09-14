@@ -6,23 +6,17 @@ import Tip from './Tip';
 import { motion } from "framer-motion";
 
 import defaultValues from '../scripts/const';
+import getNextImage from '../scripts/utils';
 import bgStyles from '../styles/bgContainer';
-
-import { useContext } from 'react';
-import MaxWidthContext from '../scripts/maxWidthContext';
 
 const HowTo = ({ handleClose }) => {
 
-    const fileImage = "placeholders.jpg";
-    const maxWidth = useContext(MaxWidthContext);
-    const imgUrl = '/_next/image?url=%2F' + fileImage + '&w=' + defaultValues.bgSizes[maxWidth.key] + '&q=75';
-
     return (
-        <Section key="step0">
+        <Section>
             <Card sx={sxStyles.bgContainer}>
                 <CardMedia sx={sxStyles.bgImage}
                     component="img"
-                    image={imgUrl}
+                    image={getNextImage("placeholders.jpg")}
                     alt="placeholders"
                 />
             </Card>
