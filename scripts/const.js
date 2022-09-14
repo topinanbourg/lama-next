@@ -6,6 +6,13 @@ export default {
     howToTip: ['Dans le doute: Click !', "(il n'y a rien de dangereux par ici)"],
     howToBtnToGo: 'Pimp my lama!',
     howToBtn: 'Que faire ?',
+    aboutTitle: 'Pimp your lama.',
+    aboutTexts: [
+        { key: "idee", text: "Doudou tout doux" },
+        { key: "draw", text: "Dessins de Théa" },
+        { key: "code", text: "Code par son papa", link: "https://github.com/topinanbourg/lama-next" },
+    ],
+    aboutBtn: "LAMA pour tous!",
     parts: [
         {
             id: "face",

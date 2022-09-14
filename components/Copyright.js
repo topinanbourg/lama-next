@@ -10,11 +10,9 @@ const Copyright = () => {
       component="footer"
     >
       <Typography variant="body2" align="center">
-        {'Copyright © '}
         <MuiLink color="inherit" href="/about">
-          Your Website
-        </MuiLink>{' '}
-        {new Date().getFullYear()}.
+          Théa &amp; JosNo
+        </MuiLink>
       </Typography>
     </Box>
   );

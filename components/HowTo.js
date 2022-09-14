@@ -55,15 +55,6 @@ const HowTo = ({ handleClose }) => {
 
 const sxStyles = {
     ...bgStyles,
-    howToContainer: {
-        zIndex: "10000",
-        boxShadow: 10,
-        margin: "auto",
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-    },
     howToText: {
         color: 'text.primary',
         mb: 2
