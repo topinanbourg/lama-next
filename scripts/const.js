@@ -2,8 +2,9 @@
 export default {
     mainTitle: 'Pimp Your Lama',
     titleHowTo: 'How to',
-    howToBtnToGo: 'OK, Pimp my own!',
     howToText: 'Choisi la (ou les) partie du lama à pimper :P',
+    tipHowTo: ['Dans le doute: Click !', "(il n'y a rien de dangereux par ici)"],
+    howToBtnToGo: 'Pimp my lama!',
     displayHowToBtn: 'Que faire ?',
     // max sizes images availables for next
     bgSizes: {

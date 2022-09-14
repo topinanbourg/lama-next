@@ -2,7 +2,11 @@ import * as React from 'react';
 import { GoLightBulb } from "react-icons/go";
 import { Box } from '@mui/material';
 
-const Tip = () => {
+const Tip = ({ texte }) => {
+
+    if (Array.isArray(texte)) {
+        texte = texte.join("\n");
+    }
 
     return (
         <Box sx={sxStyles.tipContainer} >
@@ -10,15 +14,14 @@ const Tip = () => {
                 <GoLightBulb />
             </Box>
             <Box sx={sxStyles.tipTextContainer}>
-                Dans le doute: Click ! <br />
-                (il n'y a rien de dangereux par ici)
+                {texte}
             </Box>
         </Box>
     );
 }
 
 const sxStyles = {
-    tipContainer: {
+    tipContainer: (theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -26,14 +29,22 @@ const sxStyles = {
         marginTop: 6,
         marginBottom: 3,
         color: "text.secondary",
-    },
-    tipIconContainer: {
+        [theme.breakpoints.down('md')]: {
+            marginTop: 3,
+            marginBottom: 1,
+        }
+    }),
+    tipIconContainer: (theme) => ({
         verticalAlign: 'middle',
-        px: 2
-    },
+        px: 2,
+        [theme.breakpoints.down('md')]: {
+            display: 'none',
+        }
+    }),
     tipTextContainer: {
         display: 'inline',
         textAlign: 'left',
+        whiteSpace: "pre-line"
     },
 };
 

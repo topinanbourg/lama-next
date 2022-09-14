@@ -34,7 +34,7 @@ const HowTo = ({ handleClose }) => {
                     <Typography variant="body2" sx={sxStyles.howToText}>
                         {defaultValues.howToText}
                     </Typography>
-                    <Tip />
+                    <Tip texte={defaultValues.tipHowTo} />
                 </CardContent>
                 <Divider variant="middle" />
                 <CardActions sx={sxStyles.btnContainer}>
@@ -65,7 +65,6 @@ const sxStyles = {
         zIndex: "10000",
         boxShadow: 10,
         margin: "auto",
-        maxHeight: "40%",
         position: "absolute",
         top: "50%",
         left: "50%",
@@ -88,6 +87,7 @@ const sxStyles = {
         backgroundColor: "rgba(0,0,0,0.22)",
         backdropFilter: "blur(2px)",
         opacity: 0,
+        zIndex: "9999",
     }
 };
 
