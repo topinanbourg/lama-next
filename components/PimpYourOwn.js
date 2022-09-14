@@ -26,9 +26,9 @@ const PimpYourHown = ({ displayHowTo, parts }) => {
             </Card>
             <Box
                 component={GoLightBulb}
-                sx={sxStyles.btnHowTo}
+                sx={sxStyles.howToBtn}
                 onClick={displayHowTo}
-                title={defaultValues.displayHowToBtn} >
+                title={defaultValues.howToBtn} >
             </Box>
         </Section >
     );
@@ -48,7 +48,7 @@ const sxStyles = {
         bgcolor: "#FFAA00",
     },
     ...bgStyles,
-    btnHowTo: (theme) => ({
+    howToBtn: (theme) => ({
         position: "fixed",
         left: theme.spacing(2),
         bottom: theme.spacing(2),

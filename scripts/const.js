@@ -1,11 +1,11 @@
 
 export default {
     mainTitle: 'Pimp Your Lama',
-    titleHowTo: 'How to',
+    howToTitle: 'How to',
     howToText: 'Choisi la (ou les) partie du lama à pimper :P',
-    tipHowTo: ['Dans le doute: Click !', "(il n'y a rien de dangereux par ici)"],
+    howToTip: ['Dans le doute: Click !', "(il n'y a rien de dangereux par ici)"],
     howToBtnToGo: 'Pimp my lama!',
-    displayHowToBtn: 'Que faire ?',
+    howToBtn: 'Que faire ?',
     parts: [
         {
             id: "face",

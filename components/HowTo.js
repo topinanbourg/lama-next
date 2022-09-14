@@ -20,15 +20,15 @@ const HowTo = ({ handleClose }) => {
                     alt="placeholders"
                 />
             </Card>
-            <Card sx={sxStyles.howToContainer}>
+            <Card sx={sxStyles.popInContainer}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {defaultValues.titleHowTo}
+                        {defaultValues.howToTitle}
                     </Typography>
                     <Typography variant="body2" sx={sxStyles.howToText}>
                         {defaultValues.howToText}
                     </Typography>
-                    <Tip texte={defaultValues.tipHowTo} />
+                    <Tip texte={defaultValues.howToTip} />
                 </CardContent>
                 <Divider variant="middle" />
                 <CardActions sx={sxStyles.btnContainer}>
