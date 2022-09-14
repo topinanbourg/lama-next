@@ -39,7 +39,7 @@ export default {
             title: "Selle",
             positions: {
                 top: "46.9%",
-                left: "38%",
+                left: "41%",
                 width: "35%",
                 height: "19%",
             }
