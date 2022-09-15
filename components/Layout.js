@@ -8,8 +8,6 @@ import Copyright from './Copyright';
 import CurrentTheme from '../styles/theme';
 import MaxWidthContext from "../scripts/maxWidthContext";
 import { useTheme } from "@mui/styles";
-import { useContext } from 'react';
-
 
 const Layout = ({ children }) => {
 
