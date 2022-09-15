@@ -17,6 +17,10 @@ const Layout = ({ children }) => {
     const availableSize = theme.breakpoints.keys;
     // largest usable breakpoint 
     const largestSizeBP = availableSize.reduce((acc, curr) => {
+        // disable linter rule about using react hook inside a callback
+        // cf: "What exactly do the lint rules enforce?":
+        // https://reactjs.org/docs/hooks-faq.html#what-exactly-do-the-lint-rules-enforce
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         return useMediaQuery(theme.breakpoints.up(curr)) ? curr : acc;
     });
 
